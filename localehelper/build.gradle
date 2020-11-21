@@ -1,10 +1,11 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
 
 buildscript {
     repositories {
+        maven{url "https://maven.aliyun.com/repository/public"}
         jcenter()
     }
     dependencies {
@@ -12,21 +13,21 @@ buildscript {
     }
 }
 
-publish {
-    userOrg = 'zeugma-solutions'
-    groupId = 'com.zeugmasolutions.localehelper'
-    artifactId = 'locale-helper-android'
-    publishVersion = '1.1.2'
-    desc = 'Locale Helper Android'
-    website = 'https://github.com/zeugma-solutions/locale-helper-android'
-}
+//publish {
+//    userOrg = 'zeugma-solutions'
+//    groupId = 'com.zeugmasolutions.localehelper'
+//    artifactId = 'locale-helper-android'
+//    publishVersion = '1.1.2'
+//    desc = 'Locale Helper Android'
+//    website = 'https://github.com/zeugma-solutions/locale-helper-android'
+//}
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 29
+        minSdkVersion 23
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -46,11 +47,12 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
 
     // Testing
-    testImplementation 'junit:junit:4.13'
+    testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
 
 repositories {
+    maven{url "https://maven.aliyun.com/repository/public"}
     mavenCentral()
 }

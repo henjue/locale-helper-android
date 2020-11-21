@@ -9,7 +9,7 @@ import androidx.appcompat.app.LocaleHelperAppCompatDelegate
 import java.util.*
 
 interface LocaleHelperActivityDelegate {
-    fun setLocale(activity: Activity, newLocale: Locale)
+    fun setLocale(activity: Activity, newLocale: Locale,restart:Boolean = true)
     fun attachBaseContext(newBase: Context): Context
     fun onPaused()
     fun onResumed(activity: Activity)
@@ -35,10 +35,12 @@ class LocaleHelperActivityDelegateImpl : LocaleHelperActivityDelegate {
         }
     }
 
-    override fun setLocale(activity: Activity, newLocale: Locale) {
+    override fun setLocale(activity: Activity, newLocale: Locale,restart:Boolean) {
         LocaleHelper.setLocale(activity, newLocale)
         locale = newLocale
-        activity.recreate()
+        if(restart) {
+            activity.recreate()
+        }
     }
 
     override fun attachBaseContext(newBase: Context): Context = LocaleHelper.onAttach(newBase)

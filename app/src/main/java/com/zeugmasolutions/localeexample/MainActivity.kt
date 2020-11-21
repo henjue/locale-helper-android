@@ -23,8 +23,8 @@ class MainActivity : BaseActivity() {
         secondButton.setOnClickListener { startActivity(Intent(this, SecondActivity::class.java)) }
     }
 
-    override fun updateLocale(locale: Locale) {
-        super.updateLocale(locale)
+    override fun updateLocale(locale: Locale, restart: Boolean) {
+        super.updateLocale(locale, restart)
         setTitle(R.string.main_activity_title)
     }
 }
